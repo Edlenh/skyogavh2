@@ -4,6 +4,7 @@ import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/medQuer";
 import CTA from "@/shared/CTA";
+
 //import logo
 
 type Props = {
