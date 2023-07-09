@@ -12,52 +12,35 @@ type Props = {
 
 const Home = ({setSelectedPage}: Props) => {
   return (
-    <section id="home"
-    className='gap-16 bg-gray-300 py-10 md:h-full md:pb-0'
-    >
-      {/* MAIN HEADER*/}
-      <div className='md:flex mx-auto w-5/6 items-center justify-center md:h-5/6'>
-        {/* MAIN TITLE */}
-        <div className='z-10 mt-32 md:basis-3/5'>
-            {/* HEADINGS */}
-            <div className='md:-mt-20'>
-                <div>
-                    <div>
-                        <h1 className='text-5xl font-bold sm:text-7xl'>YOGA</h1>
-                        <h2 className='text-5xl font-bold sm:text-7xl'>WITH STACEY</h2>
-                    </div>
-                </div>
-                <p className='mt-8 text-sm '>
-                    Connection is why we're here
-                    <br />
-                    Stay aligned with your own energy and let people meet you there.
-                    <br />
-                    Every class I get to teach is genuinely special to me.
-                </p>
+    <section id="home">
+    <div className='flex flex-col text-center items-center justify-center my-10 py-16 sm:py-20 md:flex-row md:py-40'>
+      <div className='sm:ml-5 md:w-1/2 md:mt-2'>   
+                <h1 className='mx-auto font-serif font-bold text-4xl mt-6 md:text-7xl md:mt-0'>YOGA <br />
+                   WITH <br />
+                    STACEY</h1>
+                        <p className='mx-auto text-md mt-4 mb-6'>
+                            Connection is why we're here
+                                <br />
+                             Stay aligned with your own energy and let people meet you there.
+                                <br />
+                                Every class I get to teach is genuinely special to me.
+                                </p>
+                                </div>
+         <div className='flex justify-center  md:mt-8 md:justify-items-end'>
+                <Lottie animationData={treePoseSvg} />
             </div>
-            {/* ACTIONS */}
-            <div className='mt-8 flex items-center gap-8 md:justify-start'>
-                <CTA setSelectedPage={setSelectedPage}>
-                    <button>CONTACT</button>
-                </CTA>
-                <CTA setSelectedPage={setSelectedPage}>
-                    <button 
-                    className='px-2'
-                    onClick={()=> setSelectedPage(SelectedPage.Contact)}
-
-                    >ABOUT</button>
-                </CTA>
-            </div>
-        </div>
-        {/* IMAGE */}
-        <div className='flex basis-3/5 justify-center md:ml-40 md:mt-16 md:justify-items-end '>
+        <div className="mx-auto md:mt-2 md:w-2/5">
             <img src={mainImg}
-            className='rounded-lg'
+            height={400}
+            width={400}
+            className='h-auto max-w-full rounded-lg'
             alt='stacey doing yoga with temple behing her'/>
+            </div>
         </div>
-      </div>
     </section>
   )
 }
 
 export default Home
+
+    
