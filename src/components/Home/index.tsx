@@ -1,42 +1,54 @@
 import { SelectedPage } from '@/shared/types'
 import mainImg from "@/assets/images/mainSk.webp"
-import CTA from '@/shared/CTA'
-import Lottie from "lottie-react";
+// import CTA from '@/shared/CTA'
+import Lottie , { LottieRefCurrentProps } from "lottie-react";
 import treePoseSvg from "@/assets/images/treepose.json"
-
-
+import { useRef } from 'react';
+import {motion} from "framer-motion"
 
 type Props = {
     setSelectedPage: (value: SelectedPage)=> void;
 }
 
 const Home = ({setSelectedPage}: Props) => {
+  const flowerAni = useRef<LottieRefCurrentProps>(null)
   return (
     <section id="home">
+      <motion.div 
+      onViewportEnter={()=>setSelectedPage(SelectedPage.Home)}
+      className="md:-mt-20"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{once: true, amount: 0.5}}
+      transition={{duration: 0.95}}
+      variants={{
+        hidden:{opacity: 0, x:-10},
+        visible: {opacity: 1, x:0},
+      }}
+      >
     <div className='flex flex-col text-center items-center justify-center my-10 py-16 sm:py-20 md:flex-row md:py-40'>
       <div className='sm:ml-5 md:w-1/2 md:mt-2'>   
                 <h1 className='mx-auto font-serif font-bold text-4xl mt-6 md:text-7xl md:mt-0'>YOGA <br />
                    WITH <br />
                     STACEY</h1>
-                        <p className='mx-auto text-md mt-4 mb-6'>
-                            Connection is why we're here
+                        <p className='mx-auto text-md mb-6 text-center leading-7 mt-4'>
+                            <span className='text-black font-bold'>Connection is why we're here.</span>
                                 <br />
                              Stay aligned with your own energy and let people meet you there.
-                                <br />
-                                Every class I get to teach is genuinely special to me.
                                 </p>
                                 </div>
-         <div className='flex justify-center  md:mt-8 md:justify-items-end'>
-                <Lottie animationData={treePoseSvg} />
+         <div className='flex pr-8'>
+                <Lottie onComplete={()=> flowerAni.current?.goToAndPlay(2,true)} lottieRef={flowerAni} animationData={treePoseSvg} loop={false}/>
             </div>
-        <div className="mx-auto md:mt-2 md:w-2/5">
+        <div className="mx-auto md:mt-2 md:w-2/5 md:mr-2">
             <img src={mainImg}
             height={400}
             width={400}
-            className='h-auto max-w-full rounded-lg'
+            className='h-auto max-w-full rounded-lg '
             alt='stacey doing yoga with temple behing her'/>
             </div>
         </div>
+        </motion.div>
     </section>
   )
 }

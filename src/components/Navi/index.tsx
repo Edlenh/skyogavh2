@@ -47,7 +47,7 @@ const Navbar = ({isTop, selectedPage, setSelectedPage}: Props) => {
                 </div>
             </div>
             {!largeScreens && isMenuToggle && (
-                <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-400 drop-shadow-xl">
+                <div className="fixed right-0 bottom-0 z-40 h-full w-[400px] bg-primary-400 drop-shadow-xl">
                     <div className="flex justify-end p-12"> 
                     <button onClick={()=> setMenuToggle(!isMenuToggle)}>
                     <XMarkIcon className="h-6 w-6 text-gray-50"/> 

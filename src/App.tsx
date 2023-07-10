@@ -1,8 +1,12 @@
 import "./index.css"
 import { useEffect, useState } from "react"
+
+
+// Components / pages
 import Navbar from "@/components/Navi"
 import Home from "@/components/Home"
 import {SelectedPage} from "@/shared/types"
+import Reviews from "./components/Reviews"
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -32,6 +36,7 @@ function App() {
     setSelectedPage={setSelectedPage} 
     />  
     <Home setSelectedPage={setSelectedPage}/>
+    <Reviews setSelectedPage={setSelectedPage} />
     </div>
   )
 }
