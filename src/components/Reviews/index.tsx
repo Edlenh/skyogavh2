@@ -1,8 +1,10 @@
 import { SelectedPage, ReviewType } from "@/shared/types"
 import { motion } from "framer-motion";
 import { HiHeart , HiOutlineSparkles , HiOutlineHeart } from "react-icons/hi";
+import CTA from "@/shared/CTA";
 import Headers from "@/shared/Headers";
 import CustomerReview from "./review";
+import groupImg from "@/assets/images/group.webp"
 
 const reviews: Array<ReviewType> = [
     {
@@ -22,6 +24,12 @@ const reviews: Array<ReviewType> = [
     }, 
 ]
 
+const container = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
 
 
 
@@ -32,23 +40,23 @@ type Props = {
 function Reviews({ setSelectedPage }: Props) {
   return (
     <section id="reviews" className="mx-auto min-h-full w-5/6 py-20">
-        <motion.div
-        onViewportEnter={()=>setSelectedPage(SelectedPage.Review)}
-        //   className="md:my-5 md:w-3/5"
+        <motion.div onViewportEnter={()=>setSelectedPage(SelectedPage.Review)}>
+          <motion.div
+          className="md:my-5 md:w-3/5"
           initial="hidden"
           whileInView="visible"
           viewport={{once: true, amount: 0.5}}
           transition={{duration: 0.95}}
           variants={{
-            hidden:{opacity: 0, x:-10},
-            visible: {opacity: 1, x:0},
+          hidden:{opacity: 0, x:-10},
+          visible: {opacity: 1, x:0},
           }}
         >
-            <Headers>WHAT THEY'RE SAYING</Headers>
+            <Headers>WHAT THEY'RE <span className="text-primary-400">SAYING</span></Headers>
             <p className="my-5 text-sm">Every Class I get to teach is special to me</p>
-           
+           </motion.div>
 
-            <div className="md:flex items-center justify-between gap-4 mt-5">
+            <div className="mt-5 items-center justify-between gap-5 md:flex">
                 {reviews.map((review: ReviewType)=>(
                     <CustomerReview
                     key={review.desc}
@@ -59,8 +67,25 @@ function Reviews({ setSelectedPage }: Props) {
                     />
                 ))}
                  </div>
-           
-
+                 <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
+                 <img src={groupImg}
+                    height={400}
+                    width={400}
+                    className='mx-auto rounded-lg mb-16'
+                    alt='stacey doing yoga with temple behing her'/>
+                 <div>
+                 <Headers>
+                  GIVING BACK WITH <span className="text-primary-400">YOGA</span>   
+                 </Headers>
+                 <div>
+                  <p className="my-5">Yoga is all about connection. Connecting the mind, the body, and the soul through the breath and movement but it also helps us connect to eachother.</p>
+                  <p className="mb-5">Go where your energy is reciprocated. celebrated, and appreciated</p>
+                 </div>
+                 <div>
+                  <CTA setSelectedPage={setSelectedPage}> LETS CONNECT </CTA>
+                 </div>
+                </div>
+                 </div>
         </motion.div>
     </section>
   )
