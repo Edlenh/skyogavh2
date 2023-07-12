@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 // Components / pages
 import Navbar from "@/components/Navi"
 import Home from "@/components/Home"
+import About from "./components/About"
 import {SelectedPage} from "@/shared/types"
 import Reviews from "./components/Reviews"
 
@@ -36,6 +37,7 @@ function App() {
     setSelectedPage={setSelectedPage} 
     />  
     <Home setSelectedPage={setSelectedPage}/>
+    <About setSelectedPage={setSelectedPage} />
     <Reviews setSelectedPage={setSelectedPage} />
     </div>
   )

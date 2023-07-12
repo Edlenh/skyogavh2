@@ -29,9 +29,10 @@ const Navbar = ({isTop, selectedPage, setSelectedPage}: Props) => {
                     {largeScreens ? (
                     <ul className={`${flexBetween} gap-8 text-sm `} >
                         <Link page ="Home"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                        <Link page ="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
-                        <Link page ="Gallery"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
-                        <Link page ="Reviews" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
+                        <Link page ="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                        <Link page ="Reviews" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>  
+                        <Link page ="Classes"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
+                        
                         {/* <Link page ="Contact" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> */}
                         <CTA setSelectedPage={setSelectedPage} >
                             Contact Me
@@ -56,8 +57,8 @@ const Navbar = ({isTop, selectedPage, setSelectedPage}: Props) => {
                  <ul className="ml-[33%] flex flex-col gap-10 text-2xl text-gray-50">
                         <Link page ="Home"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                         <Link page ="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
-                        <Link page ="Gallery"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
                         <Link page ="Reviews" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
+                        <Link page ="Classes"selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
                         <Link page ="Contact" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                         </ul>
             </div>

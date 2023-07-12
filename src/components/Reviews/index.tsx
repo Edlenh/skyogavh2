@@ -24,15 +24,6 @@ const reviews: Array<ReviewType> = [
     }, 
 ]
 
-const container = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-
-
 type Props = {
     setSelectedPage: (value: SelectedPage)=> void;
 }
@@ -41,7 +32,7 @@ function Reviews({ setSelectedPage }: Props) {
   return (
     <section id="reviews" className="mx-auto min-h-full w-5/6 py-20">
         <motion.div onViewportEnter={()=>setSelectedPage(SelectedPage.Review)}>
-          <motion.div
+        <motion.div
           className="md:my-5 md:w-3/5"
           initial="hidden"
           whileInView="visible"
@@ -68,22 +59,26 @@ function Reviews({ setSelectedPage }: Props) {
                 ))}
                  </div>
                  <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
-                 <img src={groupImg}
-                    height={400}
-                    width={400}
-                    className='mx-auto rounded-lg mb-16'
-                    alt='stacey doing yoga with temple behing her'/>
                  <div>
                  <Headers>
                   GIVING BACK WITH <span className="text-primary-400">YOGA</span>   
                  </Headers>
                  <div>
-                  <p className="my-5">Yoga is all about connection. Connecting the mind, the body, and the soul through the breath and movement but it also helps us connect to eachother.</p>
-                  <p className="mb-5">Go where your energy is reciprocated. celebrated, and appreciated</p>
+                  <p className="my-5 text-left">Yoga is all about connection. 
+                  Connecting the mind, the body, and the soul through the breath and movement but it also helps us connect to eachother.
+                  I feel so grateful and privileged to have met all these wonderful humans and have been able to be part of their yoga journey. </p>
                  </div>
-                 <div>
+                 <div className="py-10 text-center">
                   <CTA setSelectedPage={setSelectedPage}> LETS CONNECT </CTA>
                  </div>
+                 
+                </div>
+                <div>
+                <img src={groupImg}
+                    height={500}
+                    width={500}
+                    className='mx-auto rounded-lg mb-16'
+                    alt='stacey doing yoga with temple behing her'/>
                 </div>
                  </div>
         </motion.div>
